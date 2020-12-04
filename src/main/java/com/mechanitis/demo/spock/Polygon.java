@@ -16,6 +16,10 @@ public class Polygon {
         this.renderer = renderer;
     }
 
+    public Renderer getRenderer() {
+        return renderer;
+    }
+
     public int getNumberOfSides() {
         return numberOfSides;
     }
