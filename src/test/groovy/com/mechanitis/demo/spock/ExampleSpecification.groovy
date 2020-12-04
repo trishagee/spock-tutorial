@@ -100,4 +100,20 @@ class ExampleSpecification extends Specification {
         assert polygon.numberOfSides == 4
         assert polygon.renderer == renderer
     }
+
+    def "should demonstrate 'verifyAll'"() {
+        given:
+        Renderer renderer = Mock()
+        def shapeFactory = new ShapeFactory(renderer)
+
+        when:
+        def polygon = shapeFactory.createDefaultPolygon()
+
+        then:
+        verifyAll(polygon) {
+            numberOfSides == 5
+            renderer == null
+        }
+    }
+
 }
