@@ -18,4 +18,13 @@ class ExampleSpecification extends Specification {
         then:
         sides == 4
     }
+
+    def "should expect Exceptions"() {
+        when:
+        new Polygon(0)
+
+        then:
+        def exception = thrown(TooFewSidesException)
+        exception.numberOfSides == 0
+    }
 }
