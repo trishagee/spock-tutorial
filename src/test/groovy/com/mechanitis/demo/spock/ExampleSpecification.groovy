@@ -4,6 +4,10 @@ import spock.lang.Specification
 import spock.lang.Subject
 
 class ExampleSpecification extends Specification {
+
+    @Subject
+    private Polygon polygon = new Polygon(5)
+
     def "should be a simple assertion"() {
         expect:
         1 == 1
@@ -74,13 +78,14 @@ class ExampleSpecification extends Specification {
     }
 
     def "should be able to create a stub"() {
-        given:
+        given: "a palette with red as the primary colour"
         Palette palette = Stub()
         palette.getPrimaryColour() >> Colour.Red
-        @Subject
+
+        and: "a renderer initialised with the red palette"
         def renderer = new Renderer(palette)
 
-        expect:
+        expect: "the renderer to use the palette's primary colour as foreground"
         renderer.getForegroundColour() == Colour.Red
     }
 
