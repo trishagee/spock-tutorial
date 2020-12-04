@@ -39,4 +39,12 @@ class ExampleSpecification extends Specification {
         where:
         sides << [-1, 0, 1, 2]
     }
+
+    def "should be able to create a polygon with #sides sides"() {
+        expect:
+        new Polygon(sides).numberOfSides == sides
+
+        where:
+        sides << [3, 4, 5, 8, 14]
+    }
 }
