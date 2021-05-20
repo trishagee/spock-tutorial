@@ -116,8 +116,8 @@ class ExampleSpecification extends Specification {
 
         then:
         verifyAll(polygon) {
-            numberOfSides == 5
-            renderer == null
+            numberOfSides == 4
+            it.renderer == renderer
         }
     }
 
